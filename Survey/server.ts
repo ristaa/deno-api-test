@@ -1,4 +1,4 @@
-import {Application, Router, RouterContext} from "./deps.ts"
+import {Application, Router, RouterContext, oakCors} from "./deps.ts"
 import router from "./router.ts";
 
 const app = new Application();
