@@ -1,0 +1,40 @@
+### Register
+POST http://localhost:8000/api/register
+Content-Type: application/json
+
+
+{
+  "name": "testo",
+  "email": "test@exa.com",
+  "password": "tesot"
+}
+
+### Login
+POST http://localhost:8000/api/login
+Content-Type: application/json
+
+
+{
+  "email": "test@ex.com",
+  "password": "test"
+}
+
+
+#############################################################
+####################### MEMES ###############################
+#############################################################
+
+### Get all memes for user
+http://localhost:8000/api/meme
+
+### Get single meme
+http://localhost:8000/api/meme/id
+
+### Create single meme
+POST http://localhost:8000/api/meme/create
+Content-Type: application/json
+
+{
+  "name": "Meme 1",
+  "description": "LIPSUM MAN"
+}
