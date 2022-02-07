@@ -7,4 +7,4 @@ await client.connect("mongodb+srv://deno_survey:RISTA23sarme@denosurvey.ytzez.mo
 const db = client.database("deno_survey");
 
 export const usersCollection = db.collection("users");
-export const memeCollection = db.collection("memes");
+export const surveyCollection = db.collection("surveys");

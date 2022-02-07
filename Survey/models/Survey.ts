@@ -1,4 +1,4 @@
-import { memeCollection } from "../mongo.ts";
+import { surveyCollection } from "../mongo.ts";
 
 export default class Survey {
   public id?: string = '';
@@ -12,12 +12,12 @@ export default class Survey {
   }
 
   static async findByUser(userId: string) {
-    return memeCollection.find({userId}, { noCursorTimeout:false });
+    return surveyCollection.find({userId}, { noCursorTimeout:false });
   }
 
   async create() {
     delete this.id;
-    const $obj = await memeCollection.insertOne(this);
+    const $obj = await surveyCollection.insertOne(this);
     
     this.id = $obj.toString(); // MongoDB get inserted ID
     return this;

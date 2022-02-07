@@ -24,17 +24,17 @@ Content-Type: application/json
 ####################### MEMES ###############################
 #############################################################
 
-### Get all memes for user
-http://localhost:8000/api/meme
+### Get all surveys for user
+http://localhost:8000/api/survey
 
-### Get single meme
-http://localhost:8000/api/meme/id
+### Get single survey
+http://localhost:8000/api/survey/id
 
-### Create single meme
-POST http://localhost:8000/api/meme/create
+### Create single survey
+POST http://localhost:8000/api/survey/create
 Content-Type: application/json
 
 {
-  "name": "Meme 1",
+  "name": "Survey 1",
   "description": "LIPSUM MAN"
 }

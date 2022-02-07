@@ -1,4 +1,4 @@
-import { RouterContext, create, verify, getNumericDate } from '../deps.ts';
+import { RouterContext, create, verify, getNumericDate, SmtpClient } from '../deps.ts';
 import type { Header, Payload } from '../deps.ts';
 import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
 import User from '../models/User.ts';
@@ -73,6 +73,26 @@ class AuthController {
       name: user.name,
       email: user.email
     };
+
+    const client = new SmtpClient({
+      content_encoding: "quoted-printable", // 7bit, 8bit, base64, binary, quoted-printable
+    });
+
+    await client.connectTLS({
+      hostname: "smtp.gmail.com",
+      port: 465,
+      username: "rista90@gmail.com",
+      password: "RISTA!2sarme",
+    });
+    
+    await client.send({
+      from: "rista90@gmail.com", // Your Email address
+      to: "someone@xx.com", // Email address of the destination
+      subject: "Mail Title",
+      content: "Mail Content，maybe HTML",
+    });
+    
+    await client.close();
   }
 }
 

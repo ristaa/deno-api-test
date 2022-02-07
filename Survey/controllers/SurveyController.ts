@@ -1,10 +1,10 @@
 import { RouterContext, create, verify, getNumericDate } from '../deps.ts';
-import Meme from '../models/Meme.ts';
+import Survey from '../models/Survey.ts';
 
-class MemeController {
+class SurveyController {
   async getAllForUser({ request, response }: { request: any; response: any }) {
     // TODO
-    response.body = await Meme.findByUser('1');
+    response.body = await Survey.findByUser('1');
   }
 
   async getSingle({ request, response }: { request: any; response: any }) {
@@ -16,11 +16,11 @@ class MemeController {
     const { name, description } = await body.value;
 
     // TODO
-    const meme = new Meme('1', name, description);
-    await meme.create();
+    const survey = new Survey('1', name, description);
+    await survey.create();
 
     response.status = 201;
-    response.body = meme;
+    response.body = survey;
   }
 
   async update({ request, response }: { request: any; response: any }) {
@@ -32,5 +32,5 @@ class MemeController {
   }
 }
 
-const memeController = new MemeController();
-export default memeController;
+const surveyController = new SurveyController();
+export default surveyController;
